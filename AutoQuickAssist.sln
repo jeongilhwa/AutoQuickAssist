@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoQuickAssist", "AutoQuickAssist\AutoQuickAssist.csproj", "{96141123-6E25-4B51-9545-7ABD5DEB92F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96141123-6E25-4B51-9545-7ABD5DEB92F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96141123-6E25-4B51-9545-7ABD5DEB92F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96141123-6E25-4B51-9545-7ABD5DEB92F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96141123-6E25-4B51-9545-7ABD5DEB92F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDD5E460-857A-40BC-96CF-A84D4B82D254}
+	EndGlobalSection
+EndGlobal
