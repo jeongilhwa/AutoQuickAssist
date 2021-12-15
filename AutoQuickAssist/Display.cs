@@ -20,6 +20,9 @@ namespace AutoQuickAssist
         [DllImport("user32.dll", SetLastError = true)]
         public static extern int ReleaseDC(IntPtr window, IntPtr dc);
 
+        Color disPlayPositonRGB = new Color();
+        Color assistButtonRGB = new Color();
+        Color loginButtonRGB = new Color();
         public Color GetColorAt(int x, int y)
         {
             IntPtr desk = GetDesktopWindow();
