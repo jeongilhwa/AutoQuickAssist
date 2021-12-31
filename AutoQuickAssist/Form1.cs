@@ -18,24 +18,17 @@ using System.Security.Principal;
 namespace AutoQuickAssist
 {   
     public partial class Form1 : Form
-    {
-        //  Mouse autoClickMouse { get; set; } = new Mouse();
-        //public bool _systemShutdown = true;
+    {        
         QuickAssistProsess QuickAssistProsess = new QuickAssistProsess();        
         int timerCount;
-
-       
-
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ReadQuickAutoLoginTextFile();
-
+            ReadLoginTextFile();
             //if (!IsRunningAsAdministrator())
             //{
             //    ProcessStartInfo processStartInfo = new ProcessStartInfo(Assembly.GetEntryAssembly().CodeBase);
@@ -57,7 +50,7 @@ namespace AutoQuickAssist
             return windowsPrincipal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
-        private void ReadQuickAutoLoginTextFile()
+        private void ReadLoginTextFile()
         {
             string mydoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (File.Exists(mydoc + @"\\QuickAutoLogin.txt"))
@@ -109,10 +102,9 @@ namespace AutoQuickAssist
         private void AutoQuickAssistButton_Click(object sender, EventArgs e)
         {
             WriteQuickAutoLoginTextFile();
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonStrat_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(QuickAssistIDTextBox.Text);
             Thread thread = new Thread(() => QuickAssistProsess.StartQuickAssist(QuickAssistIDTextBox.Text));
@@ -133,7 +125,7 @@ namespace AutoQuickAssist
             else
             {
                 e.Cancel = true;
-                this.Visible = false; // 화면을 닫지 않고 단지 숨길 뿐이다. 
+                this.Visible = false;
             }
         }
 

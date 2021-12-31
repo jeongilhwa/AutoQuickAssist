@@ -33,7 +33,7 @@ namespace AutoQuickAssist
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.QuickAssistIDTextBox = new System.Windows.Forms.TextBox();
             this.WriteQuickAssistIDButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonStart = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.활성화ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,15 +59,15 @@ namespace AutoQuickAssist
             this.WriteQuickAssistIDButton.UseVisualStyleBackColor = true;
             this.WriteQuickAssistIDButton.Click += new System.EventHandler(this.AutoQuickAssistButton_Click);
             // 
-            // button1
+            // ButtonStart
             // 
-            this.button1.Location = new System.Drawing.Point(93, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "자동실행시작";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonStart.Location = new System.Drawing.Point(93, 73);
+            this.ButtonStart.Name = "ButtonStart";
+            this.ButtonStart.Size = new System.Drawing.Size(109, 23);
+            this.ButtonStart.TabIndex = 2;
+            this.ButtonStart.Text = "자동실행시작";
+            this.ButtonStart.UseVisualStyleBackColor = true;
+            this.ButtonStart.Click += new System.EventHandler(this.ButtonStrat_Click);
             // 
             // notifyIcon1
             // 
@@ -106,7 +106,7 @@ namespace AutoQuickAssist
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 130);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonStart);
             this.Controls.Add(this.WriteQuickAssistIDButton);
             this.Controls.Add(this.QuickAssistIDTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -124,7 +124,7 @@ namespace AutoQuickAssist
 
         private System.Windows.Forms.TextBox QuickAssistIDTextBox;
         private System.Windows.Forms.Button WriteQuickAssistIDButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonStart;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 활성화ToolStripMenuItem;

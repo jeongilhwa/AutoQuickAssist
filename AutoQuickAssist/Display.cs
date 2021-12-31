@@ -27,9 +27,9 @@ namespace AutoQuickAssist
         {
             IntPtr desk = GetDesktopWindow();
             IntPtr dc = GetWindowDC(desk);
-            int a = (int)GetPixel(dc, x, y);
+            int displayPixel = (int)GetPixel(dc, x, y);
             ReleaseDC(desk, dc);
-            return Color.FromArgb(255, (a >> 0) & 0xff, (a >> 8) & 0xff, (a >> 16) & 0xff);
+            return Color.FromArgb(255, (displayPixel >> 0) & 0xff, (displayPixel >> 8) & 0xff, (displayPixel >> 16) & 0xff);
         }
     }
 }
