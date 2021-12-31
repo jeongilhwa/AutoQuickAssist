@@ -45,30 +45,15 @@ namespace AutoQuickAssist
         private const int showNORMAL = 1;
 
 
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr GetDesktopWindow();
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr GetWindowDC(IntPtr window);
-        [DllImport("gdi32.dll", SetLastError = true)]
-        public static extern uint GetPixel(IntPtr dc, int x, int y);
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern int ReleaseDC(IntPtr window, IntPtr dc);
 
-        public static Color GetColorAt(int x, int y)
-        {
-            IntPtr desk = GetDesktopWindow();
-            IntPtr dc = GetWindowDC(desk);
-            int a = (int)GetPixel(dc, x, y);
-            ReleaseDC(desk, dc);
-            return Color.FromArgb(255, (a >> 0) & 0xff, (a >> 8) & 0xff, (a >> 16) & 0xff);
-        }
 
 
         public static int WM_QUERYENDSESSION = 0x0011;
         Mouse MouseControl = new Mouse();
+        Display display = new Display();
         Color displayColor = new Color();
         Color displayColor2 = new Color();
-
+        
         public string QuickAssistUserID { get; set; }
         Point point = new Point();
         Size size = new Size();
@@ -96,7 +81,6 @@ namespace AutoQuickAssist
 
             MouseControl.SaveMouseCursor();
             Cursor.Position = new Point(point.X + 122, point.Y + 535);
-            displayColor = GetColorAt(point.X + 122, point.Y + 535);
       
             SetForegroundWindow(quickAssistHandle);
             MouseControl.LeftClick();
@@ -104,15 +88,12 @@ namespace AutoQuickAssist
 
             Cursor.Position = new Point(MouseControl.beforeMouseCursorX, MouseControl.beforeMouseCursorY);
 
-            displayColor = GetColorAt(point.X+ 306, point.Y+ 158);
-            displayColor2 = GetColorAt(point.X + 306, point.Y + 285);
             Color color = new Color();
             color = Color.FromArgb(0, 103, 184);
             int tryCount = 0;
             while(true)
             {
                 GetWindowPos(quickAssistHandle, ref point, ref size);
-                displayColor2 = GetColorAt(point.X + 308, point.Y + 285);
 
                 if (color.ToArgb().Equals(displayColor2.ToArgb())|| tryCount > 20)
                 {
