@@ -44,10 +44,6 @@ namespace AutoQuickAssist
         private static extern bool ShowWindowAsync(IntPtr quick, int howshow);
         private const int showNORMAL = 1;
 
-        [DllImport("user32.dll")]
-        public static extern void keybd_event(uint vk, uint scan, uint flags, uint extraInfo);
-
-
 
 
 
@@ -108,19 +104,16 @@ namespace AutoQuickAssist
 
                 if (color.ToArgb().Equals(displayColor2.ToArgb()) || tryCount > 20)
                 {
-                    MouseControl.SaveMouseCursor();
                     Cursor.Position = new Point(point.X + 306, point.Y + 158);
                     MouseControl.LeftClick();
 
                     Cursor.Position = new Point(point.X + 306, point.Y + 285);
-                    SendKeys.SendWait("^{V}");
-                    PasteQuickAssistID();
-                    MouseControl.LeftClick();
+                    SendKeys.SendWait("^{V}");                    
                     break;
 
                 }
                 tryCount++;
-                Thread.Sleep(100);
+                Thread.Sleep(500);
             }
         }
 
@@ -150,13 +143,6 @@ namespace AutoQuickAssist
             size = new Size(placement.normal_position.Right - (placement.normal_position.Left * 2), placement.normal_position.Bottom - (placement.normal_position.Top * 2));
             point = new Point(placement.normal_position.Left, placement.normal_position.Top);
         }
-        private void PasteQuickAssistID()
-        {
-            keybd_event((byte)Keys.ControlKey, 0, 0x00, 0);
-            keybd_event((byte)Keys.V, 0, 0x00, 0);
-            Thread.Sleep(100);
-            keybd_event((byte)Keys.ControlKey, 0, 0x02, 0);
-            keybd_event((byte)Keys.V, 0, 0x02, 0);
-        }
+        
     }
 }
