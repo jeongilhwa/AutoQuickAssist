@@ -93,14 +93,11 @@ namespace AutoQuickAssist
 
                     SetForegroundWindow(quickAssistHandle);
                     MouseControl.LeftClick();
-
+                    Thread.Sleep(100);
                     Cursor.Position = new Point(MouseControl.beforeMouseCursorX, MouseControl.beforeMouseCursorY);
                     break;
                 }
             }
-           
-
-
             tryCount = 0;
             while (true)
             {
@@ -114,14 +111,15 @@ namespace AutoQuickAssist
 
                     Cursor.Position = new Point(point.X + 306, point.Y + 285);
                     SendKeys.SendWait("^{V}");
+                    
                     PasteQuickAssistID();
                     MouseControl.LeftClick();
                     break;
-
-                }
+                }                
                 tryCount++;
                 Thread.Sleep(100);
             }
+            Cursor.Position = new Point(MouseControl.beforeMouseCursorX, MouseControl.beforeMouseCursorY);
         }
 
         private void ExecutionQuickAssist()
