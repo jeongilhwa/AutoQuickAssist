@@ -28,20 +28,7 @@ namespace AutoQuickAssist
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ReadLoginTextFile();
-            //if (!IsRunningAsAdministrator())
-            //{
-            //    ProcessStartInfo processStartInfo = new ProcessStartInfo(Assembly.GetEntryAssembly().CodeBase);
-            //    {
-            //        var withBlock = processStartInfo;
-            //        withBlock.UseShellExecute = true;
-            //        withBlock.Verb = "runas";
-            //        Process.Start(processStartInfo);
-            //        Application.Exit();
-            //    }
-            //}
-            //else
-            //    this.Text += " " + "(Administrator)";
+            ReadLoginTextFile();    
         }
         public bool IsRunningAsAdministrator()
         {
