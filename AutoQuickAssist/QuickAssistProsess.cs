@@ -78,15 +78,17 @@ namespace AutoQuickAssist
             {
                 ShowWindowAsync(quickAssistHandle, showNORMAL);
             }
-            Color color = new Color();
-            color = Color.FromArgb(0, 95, 184);
+            Color basicColor = new Color();
+            Color DarkModeColor = new Color();
+            basicColor = Color.FromArgb(0, 95, 184);
+            DarkModeColor = Color.FromArgb(96, 205, 255);
             GetWindowPos(quickAssistHandle, ref point, ref size);
 
             while (true)
             {
                 GetWindowPos(quickAssistHandle, ref point, ref size);
                 displayColor2 = display.GetColorAt(point.X + 160, point.Y + 535);
-                if (color.ToArgb().Equals(displayColor2.ToArgb()) || tryCount > 20)
+                if (basicColor.ToArgb().Equals(displayColor2.ToArgb())|| DarkModeColor.ToArgb().Equals(displayColor2.ToArgb()) || tryCount > 20)
                 {
                     MouseControl.SaveMouseCursor();
                     Cursor.Position = new Point(point.X + 160, point.Y + 535);
@@ -103,7 +105,7 @@ namespace AutoQuickAssist
             {
                 GetWindowPos(quickAssistHandle, ref point, ref size);
 
-                if (color.ToArgb().Equals(displayColor2.ToArgb()) || tryCount > 20)
+                if (basicColor.ToArgb().Equals(displayColor2.ToArgb()) || DarkModeColor.ToArgb().Equals(displayColor2.ToArgb()) || tryCount > 20)
                 {
                     MouseControl.SaveMouseCursor();
                     Cursor.Position = new Point(point.X + 306, point.Y + 158);
